@@ -1,10 +1,15 @@
+/*
+* 在 head 中引入即可，记得修改下面的全屏适配比例
+*
+* */
+
 (function (doc, win) {
   var docEl = doc.documentElement
   var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
   var recalc = function () {
     var clientWidth = docEl.clientWidth
     if (!clientWidth) return;
-    var remFull = 3.75
+    var remFull = 3.75 // 适配比例，这里是3.75rem全屏
     var size = clientWidth / (remFull * 100) * 100
 
     docEl.style.fontSize = size + 'px'
