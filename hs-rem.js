@@ -4,15 +4,15 @@
 * */
 
 (function (doc, win) {
+  var remFull = 3.75 // 3.75rem全屏
   var docEl = doc.documentElement
   var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
   var recalc = function () {
     var clientWidth = docEl.clientWidth
     if (!clientWidth) return;
-    var remFull = 3.75 // 适配比例，这里是3.75rem全屏
-    var size = clientWidth / (remFull * 100) * 100
 
-    docEl.style.fontSize = size + 'px'
+    var fontSize = clientWidth / (remFull * 100) * 100
+    docEl.style.fontSize = fontSize + 'px'
 
     var eDivWidth = 0
     var eDiv = document.createElement('div')
@@ -30,7 +30,7 @@
         eDivWidth = eDiv.clientWidth
 
         if (clientWidth !== eDivWidth) {
-          docEl.style.fontSize = size * (clientWidth / eDivWidth) + 'px'
+          docEl.style.fontSize = fontSize * (clientWidth / eDivWidth) + 'px'
         } else {
           clearInterval(timer)
           document.body.removeChild(eDiv)
