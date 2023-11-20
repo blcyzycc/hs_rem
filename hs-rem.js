@@ -4,14 +4,14 @@
 * */
 
 (function (doc, win) {
-  var remFull = 3.75 // 3.75rem全屏
+  var remFull = 7.5 // 7.5rem全屏
   var docEl = doc.documentElement
   var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
   var recalc = function () {
     var clientWidth = docEl.clientWidth
     if (!clientWidth) return;
 
-    var fontSize = clientWidth / (remFull * 100) * 100
+    var fontSize = clientWidth / remFull
     docEl.style.fontSize = fontSize + 'px'
 
     var eDivWidth = 0
